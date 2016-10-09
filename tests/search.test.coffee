@@ -6,6 +6,20 @@ setUp: (callback) ->
   @sut = new Algorithm.Search()
   callback()
 
+'returns -1 when number not found in array of size 1': (test) ->
+  inputArray = [12]
+  result = @sut.binarySearch inputArray, 13
+  expected = -1
+  test.equal(result, expected)
+  test.done()
+
+'returns -1 when number not found in array after multiple attempts': (test) ->
+  inputArray = [1,2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20]
+  result = @sut.binarySearch inputArray, 13
+  expected = -1
+  test.equal(result, expected)
+  test.done()
+
 'can find number in an array of size 1 in 1 attempt': (test) ->
   inputArray = [12]
   result = @sut.binarySearch inputArray, 12
